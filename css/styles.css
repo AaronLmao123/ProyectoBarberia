@@ -1,0 +1,37 @@
+.ubuntu-regular {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.gupter-bold {
+    font-family: "Gupter", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.text-danger{
+    font-family: "Gupter", serif;
+    font-size: 5em;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.card-text{
+    font-family: "Ubuntu";
+    font-size: 18px;
+    font-style: normal;
+}
+
+.form-label{
+    font-family: "Ubuntu";
+    font-size: 20px;
+    font-style: normal;
+}
+
+.nav-link{
+    font-family: "Ubuntu";
+    font-size: 20px;
+    font-style: normal;
+}

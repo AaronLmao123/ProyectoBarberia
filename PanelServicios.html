@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PANEL Administrator</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+  <!-- Navegacion Arriba -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand me-auto ms-lg-0 ms-3 fw-bold custom-font text-danger" href="PanelInicio.html">
+        <img src="resourses/logo.png" alt="Logo" style="height: 40px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar"
+        aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="bi bi-chevron-double-down"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="topNavBar">
+        <form class="d-flex ms-auto my-3 my-lg-0">
+          <div class="input-group">
+            <input class="form-control" type="search" placeholder="Buscar" aria-label="Search" />
+            <button class="btn btn-danger" type="submit">
+              <i class="bi bi-search text-dark"></i>
+            </button>
+          </div>
+        </form>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle ms-2 text-danger" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-person-circle text-danger"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end navbar-dark bg-dark">
+              <li>
+                <a class="text-light" href="#" style="text-decoration: none;">
+                  <i class="bi bi-box-arrow-in-right" href="index.html" style="margin-right: 5px;"></i>Salir de cuenta
+                </a>
+              </li>
+              <li><a class="text-light" href="#" style="text-decoration: none;">
+                  <i class="bi bi-info-square" style="margin-right: 5px;"></i>Nosotros
+                </a></li>
+              <li><a class="text-light" href="#" style="text-decoration: none;">
+                  <i class="bi bi-question-circle" style="margin-right: 5px;"></i>Ayuda
+                </a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Panel izquierdo -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 bg-dark" style="height: 100vh; position: fixed; top: 62px;">
+        <!-- Contenido del panel administrativo -->
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <div class="text-muted small fw-bold text-uppercase px-3">
+              ADMINISTRACION
+            </div>
+            <a class="nav-link text-light">
+              <i class="bi bi-house-door-fill text-danger" style="margin-right: 10px;"></i>INICIO
+            </a>
+          </li>
+
+          <hr class="bg-light">
+          <li class="nav-item">
+          <li>
+            <div class="text-muted small fw-bold text-uppercase px-3">
+              SOPORTE
+            </div>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="PanelUsuarios.html">
+              <i class="bi bi-person-badge-fill text-danger" style="margin-right: 10px;"></i>USUARIOS
+            </a>
+          </li>
+
+
+
+          </li>
+          <a class="nav-link text-light active" href="PanelServicios.html">
+            <i class="bi bi-people-fill text-danger" style="margin-right: 10px;"></i>SERVICIOS
+          </a>
+          </li>
+
+
+          <hr class="bg-light">
+          <li class="nav-item">
+            <div class="text-muted small fw-bold text-uppercase px-3">
+              INVENTARIO
+            </div>
+            <a class="nav-link text-light" href="PanelProductos.html">
+              <i class="bi bi-cart-fill text-danger" style="margin-right: 10px;"></i>PRODUCTOS
+            </a>
+          </li>
+
+          <hr class="bg-light">
+          <li class="nav-item">
+          <li>
+            <div class="text-muted small fw-bold text-uppercase px-3">
+              Reservaciones
+            </div>
+          </li>
+          <a class="nav-link text-light" href="PanelCitas.html">
+            <i class="bi bi-calendar-check-fill text-danger" style="margin-right: 10px;"></i>CITAS
+          </a>
+          </li>
+        </ul>
+      </div>
+
+
+
+
+      <div class="col-md-10 offset-md-2" style="margin-top: 56px;">
+        <div class="container">
+          <h1 class="mt-4">Servicios</h1>
+          <div id="alert-container"></div>
+          <button id="add-service-btn" class="btn btn-primary my-3" data-toggle="modal" data-target="#serviceModal">
+            Agregar Servicio
+          </button>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Costo</th>
+              </tr>
+            </thead>
+            <tbody id="services-table-body">
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Modal para agregar/editar sevicio -->
+        <div class="modal fade" id="serviceModal" tabindex="-1" role="dialog" aria-labelledby="serviceModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="serviceModalLabel">Agregar servicio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="service-form">
+                  <div class="form-group">
+                    <label for="service-id">Id</label>
+                    <input type="number" class="form-control" id="service-id" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="service-name">Nombre</label>
+                    <input type="text" class="form-control" id="service-name" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="service-description">Descripcion</label>
+                    <input type="text" class="form-control" id="service-description" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="service-cost">Costo</label>
+                    <input type="number" class="form-control" id="service-cost" required />
+                  </div>
+                  <input type="hidden" id="service-id" />
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+      <script src="js/jquery-3.5.1.js"></script>
+      <script src="js/script.js"></script>
+      <script src="js/jquery.js"></script>
+      <script src="js/jsdelivr.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script src="js/corrected2.js"></script>
+
+
+
+</body>
+
+</html>
